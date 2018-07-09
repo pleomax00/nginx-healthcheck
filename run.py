@@ -47,7 +47,7 @@ class Worker (threading.Thread):
         print "Rewrting nginx.. with", newconf
         build_site (self.name, newconf)
         print "Reloading nginx"
-        os.system ("/usr/bin/sudo /etc/init.d/nginx reload")
+        os.system ("/usr/bin/sudo /etc/init.d/nginx restart")
 
     def check (self, backend):
         request = urllib2.Request ('http://' + backend + self.conf.get ("healthcheck"))
